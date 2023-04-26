@@ -1,13 +1,13 @@
 import express from 'express';
 import habitacionesRoutes from './routes/habitaciones.routes.js';
 import reservasRoutes from './routes/reservas.routes.js';
+import { PORT } from './config.js'
 
 const app = express();
-const port = 3002;
 
-app.get('/', (req, res) => {
-    res.send('Hola mundo')
-})
+//middleware
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 //habitaciones
 app.use(habitacionesRoutes)
@@ -16,7 +16,4 @@ app.use(habitacionesRoutes)
 app.use(reservasRoutes)
 
 
-
-
-
-app.listen(port, () => console.log(`Server listening on [${port} 😎🤙]`))
+app.listen(PORT, () => console.log(`Server listening on [${PORT} 😎🤙]`))

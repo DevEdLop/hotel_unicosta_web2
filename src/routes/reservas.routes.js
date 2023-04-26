@@ -2,11 +2,14 @@ import { Router } from 'express';
 import {
     crearReserva,
     editarReserva,
-    eliminarReserva
+    eliminarReserva,
+    getReservas
 } from '../controllers/reservas.controller.js';
 
 const route = Router();
 
+
+route.get('/bookings', getReservas)
 
 route.post('/bookings', crearReserva)
 
