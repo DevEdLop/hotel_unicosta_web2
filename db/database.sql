@@ -17,9 +17,9 @@ CREATE TABLE IF NOT EXISTS reservas(
     codigo_habitacion INT(10) NOT NULL,
     nombre_cliente VARCHAR(255) NOT NULL,
     telefono_cliente VARCHAR(255) NOT NULL,
-  	fecha_reservacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    fecha_entrada TIMESTAMP,
-    fecha_salida TIMESTAMP,
+  	fecha_reservacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    fecha_entrada TIMESTAMP NOT NULL,
+    fecha_salida TIMESTAMP NOT NULL,
     PRIMARY KEY (codigo),
     FOREIGN KEY (codigo_habitacion) REFERENCES Habitaciones(codigo)
 );
