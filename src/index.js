@@ -10,10 +10,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 //habitaciones
-app.use(habitacionesRoutes)
+app.use('/api', habitacionesRoutes)
 
 //reservas
-app.use(reservasRoutes)
+app.use('/api', reservasRoutes)
 
 
 app.listen(PORT, () => console.log(`Server listening on [${PORT} 😎🤙]`))

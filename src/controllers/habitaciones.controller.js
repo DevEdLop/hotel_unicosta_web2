@@ -4,7 +4,7 @@ import { request, response } from 'express';
 export const getHabitaciones = async (_req = request, res = response) => {
 
     try {
-        const [rows] = await pool.query('SELECT * FROM HABITACIONES')
+        const [rows] = await pool.query('SELECT * FROM Habitaciones')
         if (rows == 0) {
             return res.status(404).json({
                 message: 'No hay habitaciones registradas'
@@ -24,7 +24,7 @@ export const getHabitacionByCodigo = async (req = request, res = response) => {
     const { codigo } = req.params
     try {
 
-        const [rows] = await pool.query('SELECT * FROM HABITACIONES WHERE codigo=?', [codigo])
+        const [rows] = await pool.query('SELECT * FROM Habitaciones WHERE codigo=?', [codigo])
         if (rows == 0) {
             return res.status(404).json({
                 message: 'No hay habitaciones con este codigo'
